@@ -1,4 +1,4 @@
-package com.setiyawan.uas_room
+package com.setiyawan.roomexample
 
 import org.junit.Test
 

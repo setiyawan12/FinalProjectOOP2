@@ -1,7 +1,7 @@
-package com.setiyawan.uas_room.data.dao
+package com.setiyawan.roomexample.data.dao
 
-import android.app.Person
 import androidx.room.*
+import com.setiyawan.roomexample.data.model.Person
 
 @Dao
 interface PersonDao {

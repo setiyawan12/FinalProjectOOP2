@@ -1,4 +1,4 @@
-package com.setiyawan.uas_room.data.model
+package com.setiyawan.roomexample.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -16,3 +16,4 @@ data class Person (
     @ColumnInfo(name = "nim")
     val nim : String
 )
+
