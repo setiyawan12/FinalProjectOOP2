@@ -29,3 +29,37 @@ Menambahkan dependencies di build.gradle(:app) && plugins
       kapt "androidx.room:room-compiler:$room_version"
       implementation "com.airbnb.android:lottie:3.4.4"
     }
+
+Create class model
+     
+     @Entity(indices = [Index(value = ["id"], unique = true)])
+     data class Person (
+          @PrimaryKey(autoGenerate = true)
+          var id: Int? = null,
+          @ColumnInfo(name = "name")
+          var name : String,
+          @ColumnInfo(name = "email")
+          var email: String,
+          @ColumnInfo(name = "nim")
+          val nim : String
+          )
+ 
+ Create class Interface PersonDao
+ 
+     @Dao
+     interface PersonDao {
+     @Query("SELECT * from Person")
+     fun all() : List<Person>
+
+     @Query("SELECT * FROM Person WHERE id = :id LIMIT 1")
+     fun findById(id: Int): Person
+
+     @Insert(onConflict = OnConflictStrategy.REPLACE)
+     fun insert(person: Person)
+
+     @Update
+     fun update(person: Person)
+
+     @Delete
+     fun delete(person: Person)
+     }
