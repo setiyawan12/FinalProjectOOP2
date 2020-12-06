@@ -63,3 +63,31 @@ Create class model
      @Delete
      fun delete(person: Person)
      }
+
+Create class BaseApp.kt
+
+    class BaseApp: Application(){
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(this@BaseApp)
+            modules(listOf(appDatabase, viewModelModule))
+         }
+          }
+         }
+    val appDatabase = module {
+    single {
+        Room.databaseBuilder(androidContext(),
+                AppDatabase::class.java, "mydb")
+            .allowMainThreadQueries().build()
+          }
+         }
+
+     val viewModelModule = module {
+     viewModel {
+        MainViewModel(get())
+     }
+     viewModel {
+        CreateUpdateViewModel(get())
+          }
+         }
