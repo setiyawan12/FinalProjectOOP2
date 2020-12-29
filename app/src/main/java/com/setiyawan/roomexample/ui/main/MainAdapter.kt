@@ -42,7 +42,6 @@ class MainAdapter (private val persons: MutableList<Person>, private val mainAda
                 return@setOnLongClickListener false
             }
 
-
         }
 
     }
